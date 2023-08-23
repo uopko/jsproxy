@@ -16,8 +16,9 @@ const PREFLIGHT_INIT = {
     'access-control-allow-methods': 'GET,POST,PUT,PATCH,TRACE,DELETE,HEAD,OPTIONS',
     'access-control-max-age': '1728000',
   }),
+  // 在这里也替换目标网址为代理服务器 IP 地址
+url = url.replace(TARGET_HOST, proxyip);
 }
-
 /**
  * @param {any} body
  * @param {number} status
