@@ -91,6 +91,13 @@ async function fetchHandler(e) {
 function httpHandler(req, pathname) {
   const reqHdrRaw = req.headers
   if (reqHdrRaw.has('x-jsproxy')) {
+    // 在这里定义你的代理服务器 IP 地址
+const proxyip = "cdn.xn--b6gac.eu.org";
+
+async function handleRequest(req) {
+  // 在这里修改请求的目标网址，将其替换为代理服务器 IP 地址
+  req = new Request(req.url.replace(TARGET_HOST, proxyip), req);
+  // 其他代码不变
     return Response.error()
   }
 
